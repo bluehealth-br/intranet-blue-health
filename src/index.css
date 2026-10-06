@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  /* ── Blue Health Brand Colors ─────────────────────────────── */
+  --color-bh-blue: #0D7AB5;
+  --color-bh-cyan: #20DAFE;
+  --color-bh-navy: #2F3570;
+  --color-bh-graphite: #282828;
+  --color-bh-white: #FFFFFF;
+  --color-bh-gray-light: #F0F0F0;
+
+  /* ── Semantic aliases ─────────────────────────────────────── */
+  --color-background: #FFFFFF;
+  --color-foreground: #282828;
+  --color-card: #FFFFFF;
+  --color-card-foreground: #282828;
+  --color-popover: #FFFFFF;
+  --color-popover-foreground: #282828;
+  --color-primary: #0D7AB5;
+  --color-primary-foreground: #FFFFFF;
+  --color-secondary: #F0F0F0;
+  --color-secondary-foreground: #2F3570;
+  --color-muted: #F0F0F0;
+  --color-muted-foreground: #6b7280;
+  --color-accent: #F0F0F0;
+  --color-accent-foreground: #2F3570;
+  --color-destructive: #dc2626;
+  --color-destructive-foreground: #FFFFFF;
+  --color-border: #e5e7eb;
+  --color-input: #e5e7eb;
+  --color-ring: #0D7AB5;
+  --radius: 0.5rem;
+
+  /* ── Montserrat ───────────────────────────────────────────── */
+  --font-sans: "Montserrat", system-ui, -apple-system, sans-serif;
+  --font-display: "Montserrat", system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-weight: 400;
+  }
+
+  h1 {
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.025em;
+  }
+
+  h2, h3 {
+    font-weight: 900;
+  }
+}
+
+/* ── Step transitions ──────────────────────────────────────── */
+@keyframes fadeSlideRight {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeSlideLeft {
+  from { opacity: 0; transform: translateX(-24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.step-enter-next {
+  animation: fadeSlideRight 0.3s ease-out;
+}
+.step-enter-prev {
+  animation: fadeSlideLeft 0.3s ease-out;
+}
+
+/* ── Dark mode (BH: fundo grafite, branco texto, ciano accent) ── */
+.dark {
+  --color-background: #282828;
+  --color-foreground: #FFFFFF;
+  --color-card: #333333;
+  --color-card-foreground: #FFFFFF;
+  --color-popover: #333333;
+  --color-popover-foreground: #FFFFFF;
+  --color-primary: #0D7AB5;
+  --color-primary-foreground: #FFFFFF;
+  --color-secondary: #3a3a3a;
+  --color-secondary-foreground: #F0F0F0;
+  --color-muted: #3a3a3a;
+  --color-muted-foreground: #9ca3af;
+  --color-accent: #3a3a3a;
+  --color-accent-foreground: #F0F0F0;
+  --color-border: #4a4a4a;
+  --color-input: #4a4a4a;
+  --color-ring: #20DAFE;
+}
